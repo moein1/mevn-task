@@ -1,0 +1,29 @@
+.task-backlog{
+    display: flex;
+    flex-wrap: wrap;
+}
+.task-boards{
+    display: flex;
+    flex-direction: column;
+    margin: 4px;
+    padding: 3px;
+    align-items: center;
+}
+
+.task-board{
+    border: 1px solid $blue-color;
+    padding: 4px;
+    margin: 3px;
+    background: $white-color;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    align-items: center;
+    box-shadow: 3px 3px 3px darken($blue-color, 10%);
+    border-radius: 3px;
+    transition: box-shadow .3s ease-in-out;
+    &:hover{
+        box-shadow: 5px 5px 5px $blue-color;
+        cursor: pointer;
+    }
+}

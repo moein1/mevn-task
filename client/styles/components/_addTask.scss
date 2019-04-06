@@ -1,0 +1,8 @@
+.add-task-section{
+    position: absolute;
+    transform : scaleY(0);
+    transition: all .4s ease-in-out;
+    &.active{
+        transform: scaleY(1);
+    }
+}
