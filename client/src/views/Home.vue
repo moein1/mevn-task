@@ -4,14 +4,14 @@
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import Tasks from "@/components/tasks.vue";
+<script lang="ts">
+import Vue from "vue";
+import Tasks from "@/components/tasks.vue"; // @ is an alias to /src
 
-export default {
+export default Vue.extend({
   name: "home",
   components: {
     Tasks
   }
-};
+});
 </script>
