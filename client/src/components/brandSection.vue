@@ -1,13 +1,13 @@
 <template>
-    <div id="brand-section"><a href="/">Moein</a></div>
+  <div id="brand-section">
+    <a href="/">Moein</a>
+  </div>
 </template>
 
-<script>
-export default {
-
-}
+<script lang="ts">
+import Vue from "vue";
+export default Vue.extend({});
 </script>
 
 <style>
-
 </style>

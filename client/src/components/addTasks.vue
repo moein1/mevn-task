@@ -14,9 +14,10 @@
   </div>
 </template>
 
-<script>
+<script lnag="ts">
 import { mapActions, mapGetters } from "vuex";
-export default {
+import Vue from "vue";
+export default Vue.extend({
   name: "addTasks",
   data() {
     return {
@@ -44,7 +45,7 @@ export default {
   computed: {
     ...mapGetters(["singleTask"])
   }
-};
+});
 </script>
 
 <style lang="scss">

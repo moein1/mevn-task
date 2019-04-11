@@ -1,5 +1,16 @@
 import axios from 'axios'
+import * as Vuex from 'vuex';
 const url = 'api/users'
+import { User } from '../../interface/user';
+
+
+interface State {
+  user: User,
+  users: User[]
+}
+
+type Context = Vuex.ActionContext<State, State>
+
 
 const state = {
   user: {},
@@ -7,7 +18,7 @@ const state = {
 }
 
 const getters = {
-  allUsers: state => state.users
+  allUsers: (state: State) => state.users
 }
 
 const actions = {
@@ -24,6 +35,12 @@ const actions = {
       response
     )
     commit('newUser', response.data.user)
+  },
+  async addUsers(context: Context, payload: User): Promise<void> {
+    await new Promise((resolve, reject) => {
+      const response = axios.post(url, payload);
+      resolve(response);
+    })
   },
   login: async ({ commit }, payload) => {
     try {

@@ -5,9 +5,10 @@
   </div>
 </template>
 
-<script>
+<script lang="ts" >
 import { mapGetters, mapActions } from "vuex";
-export default {
+import Vue from "vue";
+export default Vue.extend({
   name: "tasks",
   data() {
     return {
@@ -23,7 +24,7 @@ export default {
   created() {
     this.fetchTasks();
   }
-};
+});
 </script>
 
 <style lang="scss">

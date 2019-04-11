@@ -7,6 +7,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import { User } from "../interface/user";
 export default {
   name: "users",
   methods: {

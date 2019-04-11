@@ -1,13 +1,11 @@
-<template>
-    
-</template>
+<template></template>
 
-<script>
-export default {
+<scriptlang="ts" >
+import  Vue from 'vue';
+export default Vue.extend({
 
-}
+})
 </script>
 
 <style lang="scss">
- 
 </style>

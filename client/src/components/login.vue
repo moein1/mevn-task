@@ -9,27 +9,32 @@
       <input type="text" v-model="user.password">
     </div>
     <div>
-      <button @click="loginUser">login</button>
+      <button @click="login(user)">login</button>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts" >
 import { mapActions } from "vuex";
-export default {
+import Vue from "vue";
+interface User {
+  email: string;
+  password: string;
+}
+interface LoginInterface {
+  user: User;
+}
+export default Vue.extend({
   name: "login",
-  data() {
+  data(): LoginInterface {
     return {
-      user: {}
+      user: { email: "", password: "" }
     };
   },
   methods: {
-    loginUser() {
-      this.login(this.user);
-    },
     ...mapActions(["login"])
   }
-};
+});
 </script>
 
 <style>
