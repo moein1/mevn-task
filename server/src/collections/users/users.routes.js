@@ -4,6 +4,7 @@ const router = express.Router()
 
 const responseHeloper = require('../../_helpers/responseHelper')
 const userController = require('./users.controller')
+const asyncMiddleware = require('../../_helpers/async_router_middleware')
 
 router.get('/', async (req, res) => {
   const users = await userController.findAllUser(req.query).catch(err => {
@@ -22,16 +23,18 @@ router.get('/', async (req, res) => {
 /** this is for login and we recieve the email and password and we need to compaere the
  * user and password and pass the proper message
  */
-router.post('/login', async (req, res) => {
-  console.log('this is the login ', req.body)
-  const user = await userController.login(req.body).catch(err => {
-    console.log('this is the error ', err)
-    // return responseHeloper.sendError(res, 400, err)
-    return res.sendJson('this is the error ', err)
+router.post(
+  '/login',
+  asyncMiddleware(async (req, res) => {
+    console.log('this is the login ', req.body)
+    const user = await userController.login(req.body).catch(err => {
+      console.log('this is the error ', err)
+      return responseHeloper.sendError(res, 400, err)
+    })
+    console.log('we got here for login because we dont have the error  ')
+    return responseHeloper.sendJson(res, { status: true, user: user })
   })
-
-  responseHeloper.sendJson(res, { status: true, user: user })
-})
+)
 
 router.post('/', async (req, res) => {
   console.log('this is new user user ', req.body)

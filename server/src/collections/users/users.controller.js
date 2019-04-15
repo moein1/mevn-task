@@ -16,36 +16,38 @@ exports.findAllUser = async params => {
 
 exports.login = async userData => {
   console.log('this is the body that have for login', userData)
-  return new Promise((resolve, reject) => {
-    userModel
-      .findOne({ email: userData.email })
-      .then(user => {
-        console.log('we find the user ', user)
-        user.comparePassword(
-          userData.password,
-          user.password,
-          (err, isMath) => {
-            if (err) {
-              reject(err)
-              return
+  await loginController()
+  function loginController () {
+    return new Promise((resolve, reject) => {
+      userModel
+        .findOne({ email: userData.email })
+        .then(user => {
+          console.log('we find the user ', user)
+          user.comparePassword(
+            userData.password,
+            user.password,
+            (err, isMath) => {
+              if (err) {
+                return reject(err)
+              }
+              if (isMath == undefined || isMath === false) {
+                console.log('we reject the password ', isMath)
+                return reject({ code: 400, message: 'password does not match' })
+              }
+              /** if we get here the login is sucssfull */
+              resolve(user)
             }
-            if (isMath == undefined || isMath === false) {
-              console.log('we reject the password ', isMath)
-              reject({ code: 400, message: 'password does not match' })
-            }
-            /** if we get here the login is sucssfull */
-            resolve(user)
-          }
-        )
-      })
-      .catch(err => {
-        console.log(
-          'this is the err for finding the user with this email ',
-          err
-        )
-        reject(err)
-      })
-  })
+          )
+        })
+        .catch(err => {
+          console.log(
+            'this is the err for finding the user with this email ',
+            err
+          )
+          reject(err)
+        })
+    })
+  }
 }
 
 exports.creatUser = async userData => {
