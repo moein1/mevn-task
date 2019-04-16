@@ -12,6 +12,9 @@ import authentication from './components/authentication.vue'
 import users from './components/users.vue'
 import signup from './components/signup.vue'
 import login from './components/login.vue'
+import projects from './components/projects.vue';
+import addProjects from './components/addProjects.vue';
+
 
 import 'font-awesome/css/font-awesome.css'
 import router from './router'
@@ -26,6 +29,8 @@ Vue.component('AddTasks', AddTasks)
 Vue.component('Users', users)
 Vue.component('signup', signup)
 Vue.component('login', login)
+Vue.component('projects', projects);
+Vue.component('addProjects', addProjects);
 
 Vue.config.productionTip = false
 
