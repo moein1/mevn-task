@@ -1,5 +1,8 @@
 <template>
-  <div>Projects</div>
+  <div>
+    <div>Projects</div>
+    <add-projects></add-projects>
+  </div>
 </template>
 
 <script>
