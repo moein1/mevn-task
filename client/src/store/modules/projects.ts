@@ -21,7 +21,7 @@ const actions = {
         }
 
     },
-    fetchProject: async ({ commit }, payload) => {
+    fetchProjects: async ({ commit }, payload) => {
         try {
             const response = await axios.get(url, payload);
             if (response.data.projects) commit('fetchProjects', response.data.projects);
@@ -34,6 +34,9 @@ const actions = {
 const mutations = {
     addProject: (state, project) => {
         state.projects.push(project);
+    },
+    fetchProjects: (state, projects) => {
+        state.projects = projects;
     }
 }
 
