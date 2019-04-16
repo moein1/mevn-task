@@ -3,6 +3,7 @@ import Vue from 'vue'
 import todos from './modules/todos'
 import tasks from './modules/tasks'
 import users from './modules/users'
+import projects from './modules/projects';
 
 // Load the Vuex
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
   modules: {
     todos,
     tasks,
-    users
+    users,
+    projects
   }
 })

@@ -20,6 +20,9 @@ mongooseHelper.connect()
 const userRoutes = require('./src/collections/users/users.routes')
 app.use('/api/users', userRoutes)
 
+const projectRouters = require('./src/collections/projects/projects.routes')
+app.use('/api/projects', projectRouters)
+
 app.use('/api/posts', posts)
 app.use('/api/tasks', tasks)
 
