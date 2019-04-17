@@ -28,6 +28,14 @@ const actions = {
         } catch (err) {
             console.log('this is the error for getting the projects ', err);
         }
+    },
+    updateProject: async ({ commit }, payload) => {
+        try {
+            const response = await axios.put(url, payload);
+            if (response.data.project) commit('updateProject', response.data.projet);
+        } catch (err) {
+            console.log('this is the error for updating the project ');
+        }
     }
 }
 
@@ -37,6 +45,12 @@ const mutations = {
     },
     fetchProjects: (state, projects) => {
         state.projects = projects;
+    },
+    updateProject: (state, project) => {
+        /**we need to find the projec in the list and just update it with new props data */
+        state.projects.map(projectItem => {
+            if (projectItem.id === project.id) projectItem = project;
+        })
     }
 }
 
