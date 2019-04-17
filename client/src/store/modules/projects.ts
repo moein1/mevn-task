@@ -21,9 +21,9 @@ const actions = {
         }
 
     },
-    fetchProjects: async ({ commit }, payload) => {
+    fetchProjects: async ({ commit }) => {
         try {
-            const response = await axios.get(url, payload);
+            const response = await axios.get(url);
             if (response.data.projects) commit('fetchProjects', response.data.projects);
         } catch (err) {
             console.log('this is the error for getting the projects ', err);

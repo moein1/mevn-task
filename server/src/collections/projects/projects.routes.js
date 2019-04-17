@@ -17,4 +17,20 @@ router.get(
     return responseHelper.sendJson(res, { projects: projects, status: 200 })
   })
 )
+
+router.post(
+  '/',
+  asyncMiddleware(async (req, res) => {
+    const project = await projectController
+      .addProject(req.body)
+      .catch(err => {
+        return responseHelper.sendError(res, 400, err)
+      })
+      .then(response => {
+        console.log('this is the response for adding the new project', response)
+      })
+    console.log('we are here added new projet ', project)
+    return responseHelper.sendJson(res, { project: project, status: 200 })
+  })
+)
 module.exports = router
