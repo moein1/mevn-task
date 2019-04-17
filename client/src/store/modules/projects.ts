@@ -15,7 +15,7 @@ const actions = {
     addProject: async ({ commit }, payload) => {
         try {
             const response = await axios.post(url, payload);
-            if (response.data.project) commit('addProject', response.data.projet);
+            if (response.data.project) commit('addProject', response.data.project);
         } catch (err) {
             console.log('this is the error  for adding the project ', err);
         }

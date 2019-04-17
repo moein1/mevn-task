@@ -21,14 +21,10 @@ router.get(
 router.post(
   '/',
   asyncMiddleware(async (req, res) => {
-    const project = await projectController
-      .addProject(req.body)
-      .catch(err => {
-        return responseHelper.sendError(res, 400, err)
-      })
-      .then(response => {
-        console.log('this is the response for adding the new project', response)
-      })
+    const project = await projectController.addProject(req.body).catch(err => {
+      return responseHelper.sendError(res, 400, err)
+    })
+
     console.log('we are here added new projet ', project)
     return responseHelper.sendJson(res, { project: project, status: 200 })
   })
