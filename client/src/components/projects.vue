@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div>Projects{{allProject}}</div>
+    <div v-for="(project , index) in allProject" :key="index">
+      <div>{{project.name}} {{project.status}}</div>
+    </div>
     <add-projects></add-projects>
   </div>
 </template>
