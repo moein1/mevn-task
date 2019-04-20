@@ -2,11 +2,12 @@
   <div>
     <div>
       <h3>Add new project</h3>
+      {{mode}}
       <div>
-        <input type="text" v-model="project.name">
+        <input type="text" v-model="singleProject.name">
       </div>
       <div>
-        <input type="text" v-model="project.status">
+        <input type="text" v-model="singleProject.status">
       </div>
       <button @click="addNewProjec()">Add Project</button>
     </div>
@@ -26,13 +27,21 @@ export default Vue.extend({
       project: {}
     };
   },
+  props: { mode: String },
   methods: {
-    ...mapActions(["addProject"]),
+    ...mapActions(["addProject", "setProject"]),
     /**add the new project */
     addNewProjec() {
-      console.log("this is the project that we want to add ", this.project);
-      this.addProject(this.project);
+      console.log(
+        "this is the project that we want to add ",
+        this.singleProject
+      );
+      this.addProject(this.singleProject);
+      this.setProject({});
     }
+  },
+  computed: {
+    ...mapGetters(["singleProject"])
   }
 });
 </script>

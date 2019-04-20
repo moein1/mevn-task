@@ -9,9 +9,15 @@ const state = {
 }
 
 const getters = {
-    allProject: (state) => state.projects
+    allProject: (state) => state.projects,
+    singleProject: (state) => Object.assign({}, state.project)
 }
 const actions = {
+    setProject: ({ commit }, payload) => {
+        console.log('this is the payload for editing the project ', payload);
+        state.project = payload
+
+    },
     addProject: async ({ commit }, payload) => {
         try {
             const response = await axios.post(url, payload);

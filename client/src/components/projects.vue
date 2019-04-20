@@ -1,9 +1,9 @@
 <template>
   <div>
     <div v-for="(project , index) in allProject" :key="index">
-      <div>{{project.name}} {{project.status}}</div>
+      <div @click="selectProject(project)">{{project.name}} {{project.status}}</div>
     </div>
-    <add-projects></add-projects>
+    <add-projects :mode="mode"></add-projects>
   </div>
 </template>
 
@@ -14,11 +14,17 @@ export default Vue.extend({
   name: "projects",
   data() {
     return {
-      projects: []
+      projects: [],
+      mode: "Insert"
     };
   },
   methods: {
-    ...mapActions(["fetchProjects"])
+    ...mapActions(["fetchProjects", "setProject"]),
+    selectProject(project) {
+      console.log("this is the project for editing", project);
+      this.setProject(project);
+      this.mode = "Edit";
+    }
   },
   computed: {
     ...mapGetters(["allProject"])
