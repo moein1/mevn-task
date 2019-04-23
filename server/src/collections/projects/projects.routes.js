@@ -37,10 +37,24 @@ router.put(
     const project = await projectController
       .editProject(req.params.id, req.body)
       .catch(err => {
-        return responseHelper.sendError(err, 400, err)
+        return responseHelper.sendError(res, 400, err)
       })
     console.log('we are here at the end of edtining the project ', project)
     return responseHelper.sendJson(res, { project: project, status: 200 })
+  })
+)
+
+router.delete(
+  '/:id',
+  asyncMiddleware(async (req, res) => {
+    const response = await projectController
+      .deleteProject(req.params.id)
+      .catch(err => {
+        console.log('this is the error for deleteing the project ', err)
+        return responseHelper.sendError(res, 400, err)
+      })
+    console.log('we have removed the project ', response)
+    return responseHelper.sendJson(res, { status: 200, project: response })
   })
 )
 module.exports = router

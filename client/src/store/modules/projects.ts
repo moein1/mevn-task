@@ -46,8 +46,9 @@ const actions = {
     },
     deleteProject: async ({ commit }, payload) => {
         try {
-            const response = await axios.delete(`${url}/${payload.id}`)
+            const response = await axios.delete(`${url}/${payload}`)
             console.log('this is the projedt that has been deleted ', response);
+            if (response.data.project) commit('deleteProject', response.data.project)
         }
         catch (err) {
             console.log('this is the error we redieved for deleting the project ', err);
@@ -72,6 +73,9 @@ const mutations = {
     },
     deleteProject: (state, project) => {
         console.log('this is the mutation for deleteing the project ', project);
+        state.projects = state.projects.filter(projectItem => {
+            return projectItem.id !== project.id
+        })
     }
 }
 

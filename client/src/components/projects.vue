@@ -1,7 +1,8 @@
 <template>
   <div>
-    <div v-for="(project , index) in allProject" :key="index">
+    <div v-for="(project , index) in allProject" :key="index" class="project-item">
       <div @click="selectProject(project)">{{project.name}} {{project.status}}</div>
+      <button @click="deleteProject(project.id)">Delete</button>
     </div>
     <add-projects :mode="mode"></add-projects>
   </div>
@@ -19,7 +20,7 @@ export default Vue.extend({
     };
   },
   methods: {
-    ...mapActions(["fetchProjects", "setProject"]),
+    ...mapActions(["fetchProjects", "setProject", "deleteProject"]),
     selectProject(project) {
       console.log("this is the project for editing", project);
       this.setProject(project);

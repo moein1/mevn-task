@@ -54,3 +54,16 @@ exports.editProject = async (id, projectData) => {
       })
   })
 }
+
+/** this is the method for deleting the project */
+exports.deleteProject = async id => {
+  var project = await projectModel.findById(id)
+  console.log('we find the project for deleting ', project)
+  if (project === undefined) {
+    return new Promise.reject({
+      code: 400,
+      message: 'Could not find the project to delete'
+    })
+  }
+  return project.remove()
+}
