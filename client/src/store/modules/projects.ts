@@ -43,6 +43,15 @@ const actions = {
         } catch (err) {
             console.log('this is the error for updating the project ', err);
         }
+    },
+    deleteProject: async ({ commit }, payload) => {
+        try {
+            const response = await axios.delete(`${url}/${payload.id}`)
+            console.log('this is the projedt that has been deleted ', response);
+        }
+        catch (err) {
+            console.log('this is the error we redieved for deleting the project ', err);
+        }
     }
 }
 
