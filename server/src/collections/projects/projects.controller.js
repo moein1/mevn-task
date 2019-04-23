@@ -28,3 +28,29 @@ exports.addProject = async projectData => {
       })
   })
 }
+
+/** this is the block for editing the exsiting project */
+exports.editProject = async (id, projectData) => {
+  console.log('this is the porject ofr editting ', projectData)
+  // const editProject = await projectModel.findById(id)
+  var editingProject = await projectModel.findById(id)
+
+  console.log(
+    'this is the project that we are looking to edit ',
+    editingProject
+  )
+  /** now we found the project and must update it */
+  Object.assign(editingProject, projectData)
+  console.log('this is new eding project after merging ', editingProject)
+  /** now we need to save the project */
+  return new Promise((resolve, reject) => {
+    editingProject
+      .save()
+      .then(editedProject => {
+        resolve(editedProject)
+      })
+      .catch(err => {
+        reject(err)
+      })
+  })
+}

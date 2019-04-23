@@ -9,7 +9,7 @@
       <div>
         <input type="text" v-model="singleProject.status">
       </div>
-      <button @click="addNewProjec()">Add Project</button>
+      <button @click="addNewProjec()">{{mode}} Project</button>
     </div>
   </div>
 </template>
@@ -29,15 +29,17 @@ export default Vue.extend({
   },
   props: { mode: String },
   methods: {
-    ...mapActions(["addProject", "setProject"]),
+    ...mapActions(["addProject", "setProject", "updateProject"]),
     /**add the new project */
     addNewProjec() {
-      console.log(
-        "this is the project that we want to add ",
-        this.singleProject
-      );
-      this.addProject(this.singleProject);
-      this.setProject({});
+      if (this.mode === "Insert") {
+        /**we need to call the action for adding new project */
+        this.addProject(this.singleProject);
+        this.setProject({});
+      } else {
+        /**we need to call the action for editing  */
+        this.updateProject(this.singleProject);
+      }
     }
   },
   computed: {

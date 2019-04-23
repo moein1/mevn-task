@@ -37,7 +37,7 @@ const actions = {
     },
     updateProject: async ({ commit }, payload) => {
         try {
-            const response = await axios.put(url, payload);
+            const response = await axios.put(`${url}/${payload.id}`, payload);
             if (response.data.project) commit('updateProject', response.data.projet);
         } catch (err) {
             console.log('this is the error for updating the project ');

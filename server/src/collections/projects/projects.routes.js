@@ -29,4 +29,18 @@ router.post(
     return responseHelper.sendJson(res, { project: project, status: 200 })
   })
 )
+
+router.put(
+  '/:id',
+  asyncMiddleware(async (req, res) => {
+    console.log('this is the project id for editing ', req.params.id)
+    const project = await projectController
+      .editProject(req.params.id, req.body)
+      .catch(err => {
+        return responseHelper.sendError(err, 400, err)
+      })
+    console.log('we are here at the end of edtining the project ', project)
+    return responseHelper.sendJson(res, { project: project, status: 200 })
+  })
+)
 module.exports = router
