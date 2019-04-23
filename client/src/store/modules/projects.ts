@@ -38,9 +38,10 @@ const actions = {
     updateProject: async ({ commit }, payload) => {
         try {
             const response = await axios.put(`${url}/${payload.id}`, payload);
-            if (response.data.project) commit('updateProject', response.data.projet);
+            console.log('this is the resutl that reieve after update ', response)
+            if (response.data.project) commit('updateProject', response.data.project);
         } catch (err) {
-            console.log('this is the error for updating the project ');
+            console.log('this is the error for updating the project ', err);
         }
     }
 }
@@ -54,9 +55,11 @@ const mutations = {
     },
     updateProject: (state, project) => {
         /**we need to find the projec in the list and just update it with new props data */
-        state.projects.map(projectItem => {
-            if (projectItem.id === project.id) projectItem = project;
-        })
+        /**find the index of the project to be updated */
+        const index = state.projects.findIndex(porjectitem => { return porjectitem.id === project.id });
+        /**remove the item from array and insert the new update instead 
+         * and we can see tne new wiil be reflect in the dom */
+        state.projects.splice(index, 1, project);
     }
 }
 
