@@ -69,6 +69,9 @@ const mutations = {
         /**remove the item from array and insert the new update instead 
          * and we can see tne new wiil be reflect in the dom */
         state.projects.splice(index, 1, project);
+    },
+    deleteProject: (state, project) => {
+        console.log('this is the mutation for deleteing the project ', project);
     }
 }
 
