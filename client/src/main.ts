@@ -14,6 +14,9 @@ import signup from './components/signup.vue'
 import login from './components/login.vue'
 import projects from './components/projects.vue';
 import addProjects from './components/addProjects.vue';
+import card from './components/card.vue';
+import grid from './components/grid.vue';
+import portfolio from './components/portfolio.vue'
 
 
 import 'font-awesome/css/font-awesome.css'
@@ -31,6 +34,9 @@ Vue.component('signup', signup)
 Vue.component('login', login)
 Vue.component('projects', projects);
 Vue.component('addProjects', addProjects);
+Vue.component('card', card);
+Vue.component('gird', grid);
+Vue.component('portfolio', portfolio);
 
 Vue.config.productionTip = false
 

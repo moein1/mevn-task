@@ -36,6 +36,22 @@ export default new Router({
       path: '/projects',
       name: 'projects',
       component: () => import('./components/projects.vue'),
-    }
+    },
+    {
+      path: '/card',
+      name: 'card',
+      component: () => import('./components/card.vue'),
+    },
+    {
+      path: '/grid',
+      name: 'grid',
+      component: () => import('./components/grid.vue'),
+    },
+    {
+      path: '/portfolio',
+      name: 'portfolio',
+      component: () => import('./components/portfolio.vue'),
+    },
+
   ]
 })

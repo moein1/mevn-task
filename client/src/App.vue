@@ -5,7 +5,9 @@
       <navbar/>
       <authentication/>
     </div>
-    <router-view/>
+    <div class="main-content">
+      <router-view/>
+    </div>
   </div>
 </template>
 

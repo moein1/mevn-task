@@ -1,0 +1,508 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700');
+
+:root {                      
+  --level-one: translateZ(3rem);
+  --level-two: translateZ(6rem);
+  --level-three: translateZ(9rem);
+  
+  --fw-normal: 400;
+  --fw-bold: 700;
+  
+  --clr: #b7c9e5;
+}
+
+.main-card{
+    display: grid;
+    grid-template-columns: minmax(400px , 1fr) 3fr;
+    grid-gap: 20px;
+}
+
+.card{
+    &:hover .card-content{
+        transform: rotateY(.5turn);
+    }
+   
+    .card-content{
+        text-align: center;
+        position: relative;
+        transition: transform ease-in-out 3s;
+        padding: 15em 4em;
+        transform-style: preserve-3d;
+        display: grid;
+        .card-front, .card-back{
+              position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 5em 3em;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            display: grid;
+            align-content: center;
+        }
+        .card-front{
+            background:    lightslategrey;
+            background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/fair.jpg);
+            background-size: cover;
+            background-blend-mode: overlay;
+            color:white;
+            &::before{
+                content: '';
+                display: absolute;
+                --spacer: 1em;
+                top: var(--spacer);
+                left: var(--spacer);
+                bottom: var(--spacer);
+                right: var(--spacer);
+                border: 3px solid currentColor;
+                transform: var(--level-one);
+            }
+        
+            .card-title{
+            font-size: 3rem;
+                transform : translateZ(5rem);
+                order: 2;
+                text-transform: uppercase;
+            }
+
+            .card-subtitle{
+                transform: translateZ(4rem);
+                opacity: .7;
+                font-size: .75rem;
+                text-transform: uppercase;
+            }
+            
+        }
+        .card-back{
+            transform: rotateY(.5turn);
+            background: aquamarine;
+            color :darkred;
+            .card-body{
+                transform: var(--level-two);
+                font-size: 1.5rem;
+                line-height: 1.6;
+            }
+        }
+    }
+}
+
+// this is the section for the testing the grid in css
+
+.portfolio{
+    margin-top: 30px;
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 10px;
+}
+.portfolio-item{
+    background: #cacaca;
+    color: #fff;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    &.small{
+        grid-row: span 1;
+        grid-column:  span 2;
+    }
+    &.medium{
+        grid-row: span 2;
+        grid-column: span 2;
+    
+    }
+    &.large{
+        grid-row: span 3;
+        grid-column : span 3;
+        background-image: url(//unsplash.it/800/600);
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: multiply;
+        background-color: #cacaca;
+        opacity: .8;
+        transition: all ease-in-out 300ms;
+        position: relative;
+        &:hover{
+            background-blend-mode: initial;
+            background-size: auto;
+        }
+
+        &::before{
+            content: '';
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: absolute;
+            display: block;
+            color: #499;
+        }
+    }
+    &.tall{
+        grid-row: span 3;
+        grid-column: span 1;
+    }
+
+    &.wide{
+        grid-row: span 2;
+        grid-column:span 4;
+    }
+
+}
+
+// this is the section for the grid naming test and we can use it in my next portfollio
+
+.section-container{
+    width: 100vw;
+    display: grid;
+    grid-template-columns:[page-start] 1fr [content-start] 80vw [content-end] 1fr [page-end];
+    grid-template-rows:[hero-start] 50vh [info-start] 5em [hero-end] 5em [info-end] auto[bottom]; 
+}
+.section-one{
+    background: url(//unsplash.it/1000/800);
+    background-color: #777;
+    background-blend-mode: multiply;
+    background-size: cover;
+    text-align: center;
+    grid-column: page-start /page-end;
+    grid-row: hero-start/hero-end;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .title{
+        color: #fff;
+        font-size: 3.5rem;
+        span{
+            font-weight: 400;
+            display: block;
+        }
+    }
+}
+.section-two{
+    background-color: #ddd;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    grid-column: content-start/content-end;
+    grid-row: info-start/info-end;
+    z-index: 10;
+    box-shadow: 4px 4px 4px 1px #500;
+}
+.section-three{
+    background: #cacaca;
+    grid-row: hero-end/bottom;
+    grid-column: page-start/page-end;
+    padding:150px 0;
+    display: grid;
+    grid-template-columns: inherit;
+
+    .container{
+        background: darken(#cacaca, 20);
+        padding: 20px 0;
+        grid-column: content-start/content-end;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.grid-template{
+    p{
+        margin-bottom: 20px;
+    }
+    margin: 4px;
+    display: grid;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    //this is the long and separete section 
+    // grid-template-rows: 5em 30vh auto 5em;
+    // grid-template-columns: 1fr 9fr 3fr 1fr;
+    // grid-template-areas: 
+    //     "header header header header"
+    //     "hero hero hero hero"
+    //     ". main sidebar ."
+    //     "footer footer footer footer";
+    //this is the same result and in one section all together
+    //this is the short hand and we can put the row with on front of each row
+    //and we can put the column in front of the last row in the template
+    grid-template: 
+     "header header header header" 6em
+     "hero hero hero hero" 27vh
+     ". main sidebar ." auto
+     "footer footer footer footer" 6em 
+     / 1fr minmax(700px , 10fr) minmax(200px, 4fr) 1fr ;
+     @media screen and (max-width:1000px) {
+         grid-template:
+         "header header " 6em
+         "hero hero" 27vh
+         "main sidebar" auto
+         "footer footer" 6em / 10fr 3fr;
+     }
+
+     @media screen and (max-width : 900px) {
+         grid-template: 
+         "header" 6em
+         "hero" 27vh
+         "main" auto
+         "footer" 5em /98vw;
+     }
+    .card-img{
+        background: url(//unsplash.it/600/600);
+        background-size: cover;
+        //min-height: 200px;
+        background-position: center;
+    }
+
+    footer, header{
+        background: #555;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header{
+        grid-area: header;
+    }
+
+    .hero{
+        grid-area: hero;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: url(//unsplash.it/800/800);
+        background-size: cover;
+        background-position: center;
+        color: #333;
+        background-color: #cacaca;
+        background-blend-mode: overlay;
+    }
+
+    main{
+        grid-area: main;
+    }
+    aside{
+     grid-area: sidebar;
+     background: #777;
+     padding: 2em;
+    }
+
+    footer{
+        grid-area: footer;
+    }
+
+    .card{
+        box-shadow: 0 0 1em rgba($color: #000, $alpha: .5);
+        border-radius: 3px;
+        padding: 1.4em;
+        display: grid;
+        grid-gap: 10px;
+        margin-bottom: 6px;
+        //we can use hte template column and row and area for styling
+        // grid-template-columns: 3fr 4fr;
+        // grid-template-rows: min-content auto;
+        // grid-template-areas: 
+        // "img title"
+        // "img content";
+        //the other option is using the short hand that we can set the 
+        //the content and row and column and area in one prop
+        grid-template: 
+        "img title" min-content
+        "img content" auto / 2fr 4fr ;
+        .card-img{
+            grid-area: img;
+        }
+        .card-title{
+            grid-area: title;
+            margin: 0;
+        }
+        .card-content-new{
+            grid-area: content;
+        }
+    }
+}
+
+// .grid-container{
+//     margin: 1em auto;
+//     display: grid;
+//     grid-gap: 2em;
+//     text-align: center;
+//     grid-template-columns: repeat(4 , 1fr);
+//     grid-template-rows: repeat(2 , 1fr);
+//     //this will fill the first row first with 4 column and then go to to the next row
+//     //grid-auto-flow: column;
+//     //grid-template-rows: 300px;
+//     //this will create the first column with two row first and then go to the next column
+//     grid-auto-flow: row;
+//     .box{
+//         background: #cacaca;
+//         display: inline-block;
+//         padding: 2em;
+//         &.one{
+//             background: #444;
+//         }
+//     }
+
+    
+// }
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows : repeat(6 , 1fr);
+    grid-gap: 10px;
+    .grid-common{
+        background: #cdcdcd;
+        padding: 3em;
+    }
+    .small{
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    .medium{
+        grid-column: span 2;
+        grid-row :span 2;
+    }
+    .large{
+        grid-row: span 3;
+        grid-column: span 3;
+    }
+    .tall{
+        grid-row: span 3;
+        grid-column: span 2;
+    }
+    .wide{
+        grid-row: span 2;
+        grid-column: span 3;
+    }
+}
+
+//this is using the line names for separating each section
+.grid-naming-container{
+    display: grid;
+    width: 100vw;
+    grid-template-columns: [page-start] 1fr [content-start] 80vw [content-end] 1fr [page-end];
+    grid-template-rows: [hero-start] 40vh [info-start] 5em [hero-end] 5em [info-end] auto [bottom];
+    .hero{
+        background: url(//unsplash.it/800/800);
+        grid-column: page-start/page-end;
+        grid-row: hero-start/hero-end;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .content{
+        grid-column: content-start/content-end;
+        grid-row: info-start/info-end;
+        display: flex;
+        z-index: 10;
+        .info{
+            text-align: center;
+            background: #555;
+            color: #fff;
+            padding: 1em;
+            margin: 1em .4em;
+        }
+    }
+    .more-content{
+        padding: 8em;
+        grid-column: page-start/page-end;
+        grid-row: hero-end/bottom;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #249;
+    }
+}
+
+//this is the section for the grid template
+.grid-template-container{
+    display: grid;
+    grid-template-columns: 1fr 9fr 4fr 1fr;
+    grid-template-rows: 5em 40vh auto 5em ;
+    grid-template-areas: 
+    "header header header header"
+    "hero hero hero hero"
+    ". main side ."
+    "footer footer footer footer";
+    grid-template-columns: 1fr 
+    header,footer{
+        background: #057a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: yellowgreen;
+    }
+    header{
+        grid-area: header;
+    }
+    .hero{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #899;
+        color: #fff;
+        grid-area: hero;
+        background: url(//unsplash.it/800/800);
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: multiply;
+        grid-row: hero-start/hero-end;
+    }
+    .main-section{
+        padding: 20px;
+        background: #090;
+        grid-area: main;
+        grid-row: main-start/main-end;
+        .grid-card{
+            padding: 1em;
+            display: grid;
+            grid-column-gap: 10px;
+            grid-template-columns: 3fr 5fr;
+            grid-template-rows: min-content auto;
+            grid-template-areas: 
+            "img title"
+            "img content";
+            .card-img{
+                grid-area: img;
+
+                background: #cacaca;
+                background: url(//unsplash.it/800/800);
+                background-size: cover;
+                background-position: center;
+                background-blend-mode: overlay;
+            }
+            .card-title{
+                grid-area: title;
+            }
+            .card-content{
+                grid-area: content;
+            }
+
+        }
+    }
+    aside{
+        background: #439;
+        grid-area: side;
+        padding: 20px;
+    }
+    footer{
+     grid-area: footer;   
+    }
+}
+
+
+
+
+
+
+

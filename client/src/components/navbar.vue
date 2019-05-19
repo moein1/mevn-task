@@ -7,6 +7,15 @@
       <router-link to="/projects">Projects</router-link>
     </li>
     <li>
+      <router-link to="/card">Card</router-link>
+    </li>
+    <li>
+      <router-link to="grid">Grid</router-link>
+    </li>
+    <li>
+      <router-link to="portfolio">Portfolio</router-link>
+    </li>
+    <li>
       <router-link to="/">Summart</router-link>
     </li>
   </ul>

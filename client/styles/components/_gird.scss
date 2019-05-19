@@ -1,0 +1,430 @@
+// this is the style htat we use for the grid tile
+.grid-tile{
+    display: grid;
+    grid-template-columns: repeat(5 , 1fr);
+    grid-template-rows: repeat(5 , 1fr);
+    width: 70vw;
+    grid-gap: 10px;
+    .portfolio{
+        background: #cacaca;
+    }
+    .small{
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+    .wide{
+        grid-column: span 3;
+        grid-row: span 2;
+    }
+    .tall{
+        grid-row: span 3;
+        grid-column: span 2;
+    }
+}
+
+// this is the section for adding the naming for the gird line
+.grid-line{
+    display: grid;
+    width: 100vw;
+    grid-template-columns: [page-start] 1fr [content-start] 60vw [content-end] 1fr [page-end];
+    grid-template-rows: [hero-start] 40vh [main-start] 5em [hero-end] 5em [main-end] auto [bottom];
+   // grid-gap: 10px;
+    .grid-hero{
+        background: #cacaca;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        grid-row: hero-start/hero-end;
+        grid-column: page-start/page-end;
+
+        background: #cacaca;
+        background: url(//unsplash.it/800/800);
+        background-blend-mode: overlay;
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+    }
+    .grid-main-content{
+        grid-row: main-start/main-end;
+        grid-column: content-start/content-end;
+        display: flex;
+        z-index: 10;
+        .info{
+            padding: 1em;
+            background: #c98;
+            margin: 0 10px;
+        }
+    }
+    .grid-main-second{
+        grid-row: hero-end/bottom;
+        grid-column: page-start/pgae-end;
+        padding: 7em;
+        background: #1aa;
+    }
+}
+
+//this is the section that we can use the template area for different section of the dom
+.grid-template-area{
+    display: grid;
+    grid-template-columns: 1fr 8fr 4fr 1fr;
+    grid-template-rows: 5em 50vh auto 5em;
+    grid-template-areas: 
+    "header header header header"
+    "hero hero hero hero"
+    ". main side ."
+    "footer footer footer footer";
+
+    header,footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #cacaca;
+        color: #fff;
+    }
+    header{
+        grid-area: header;
+    }
+    .grid-template-hero{
+        grid-area: hero;
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+        background: url(//unsplash.it/800/800);
+        background-size: cover;
+        background-position: center;
+    }
+    .grid-card-area{
+        padding: .4em;
+        grid-area: main;
+        .grid-card{
+            margin: 10px 0;
+            display: grid;
+            grid-template-areas: 
+            "img header"
+            "img content";
+            grid-template-columns: 3fr 4fr;
+            grid-template-rows: min-content auto;
+            grid-column-gap: 10px;
+            .card-img{
+                background: url(//unsplash.it/800/800);
+                background-size: cover;
+                background-position: center;
+                grid-area: img;
+            }
+            .grid-header{
+                grid-area: header;
+            }
+            .grid-content{
+                grid-area: content;
+            }
+        }
+
+    }
+    aside{
+        grid-area: side;
+        padding: 1em;
+        background: #c98;
+    }
+    footer{
+        grid-area: footer;
+    }
+}
+
+.complex-grid{
+    width: 90vw;
+    height: 90vh;
+    display: grid;
+    transform-style: preserve-3d;
+   // background: url('https://images.unsplash.com/photo-1557165693-0bcb364729bb?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=analise-benevides-1570079-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 4fr;
+    grid-template-rows: 20vh 5em 5em 5em 5em 5em 20vh;
+    grid-template-areas: 
+    ". . . . . . ."
+    ". . . img2 . . ."
+    ". img1 . img2 . . ."
+    ". img1 . img2 . img3 ."
+    ". img1 . . . img3 ."
+    ". . . . . img3 ."
+    ". . . . . . .";
+
+    .img{
+       background: url('https://images.unsplash.com/photo-1557165693-0bcb364729bb?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=analise-benevides-1570079-unsplash.jpg');
+        background-size: cover;
+        background-position: center;
+        box-shadow: 2px 2px 2px 4px rgba(0, 0, 0, .5);
+        transform-style: preserve-3d;
+    }
+    .main{
+        grid-area: main;
+        background: #ddd;
+    }
+    .img1{
+       grid-area: img1;
+       position: relative;
+       perspective:100px;
+       &:before{
+        background-image: url('https://images.unsplash.com/photo-1557165693-0bcb364729bb?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=analise-benevides-1570079-unsplash.jpg');
+        background-size: 100px 200px;
+        background-size: cover;
+        background-position: center;
+        content:"";
+           position: absolute;
+           top: 0;
+           left: 0;
+           right: 0;
+        bottom: 0;
+       transform: rotateY(20deg);
+       transform-style: preserve-3d;
+       z-index: 10;
+       }
+       &:after{
+        //content: url('https://images.unsplash.com/photo-1557165693-0bcb364729bb?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=analise-benevides-1570079-unsplash.jpg');
+           height: 200px;;
+           position: absolute;
+           top: 0;
+           left: 0;
+           right: 0;
+           bottom: 0;
+           transform: rotateY(-10deg);
+           transform-style: preserve-3d;
+           z-index: 10
+       }
+    }
+    .img2{
+        grid-area: img2;
+        position: relative;
+        perspective:100px;
+        &:before{
+         background-image: url('https://images.unsplash.com/photo-1557165693-0bcb364729bb?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=analise-benevides-1570079-unsplash.jpg');
+         background-size: 100px 200px;
+         background-size: cover;
+        background-position: center;
+         content:"";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+         bottom: 0;
+        transform: rotateY(-20deg);
+        transform-style: preserve-3d;
+        z-index: 10;
+        }
+    }
+    .img3{
+        grid-area: img3;
+        position: relative;
+        perspective:100px;
+        &:before{
+         background-image: url('https://images.unsplash.com/photo-1557165693-0bcb364729bb?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=analise-benevides-1570079-unsplash.jpg');
+         background-size: 100px 200px;
+         background-size: cover;
+         background-position: center;
+         content:"";
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+        transform: rotateY(-10deg);
+        transform-style: preserve-3d;
+        z-index: 10;
+        }
+    }
+
+   
+
+}
+
+.piet{
+    display: grid;
+    width: 70vw;
+    height: 70vh;
+    grid-template-columns: repeat(8 , 1fr);
+    grid-template-rows: repeat(8 , 1fr);
+    position: relative;
+    perspective: 1000px;
+    animation: spin ease-in-out 2s infinite;
+    transform-style: preserve-3d;
+    &::before{
+        background-image: url('https://images.unsplash.com/photo-1557165693-0bcb364729bb?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=analise-benevides-1570079-unsplash.jpg');
+        background-size: cover;
+        background-position: center;
+        content: '';
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        z-index: 4;
+        animation:rotate ease-in-out 2s infinite;
+        opacity: .4;
+    }
+    
+    .pie-part{
+        border: 3px solid #fff;
+    }
+    .wide1{
+        @include coloring($green-color , $blue-color , 4 , 1);
+    }
+    .wide2{
+        @include coloring($blue-color , $green-color , 2 , 1);
+    }
+    .wide3{
+        @include coloring($green-color , $blue-color , 4 , 2);
+    }
+    .tall1{
+        @include coloring($green-color , $blue-color , 2 , 3);
+    }
+    .tall2{
+        @include coloring($blue-color , $green-color , 1 , 2);
+    }
+    .box{
+        @include coloring($green-color , $blue-color , 2 , 2);
+    }
+}
+
+.modernist{
+    display: grid;
+    width: 80vw;
+    height: 80vh;
+    grid-template-columns: repeat(10 , 1fr);
+    grid-template-rows: repeat(5 , 1fr);
+    .orange{
+        background: orange;
+    }
+    .purple{
+        background: purple;
+    }
+    .dark-orange{
+        background: darkorange;
+    }
+    .red{
+        background: #c00;
+    }
+    .tall{
+        grid-column: span 1;
+        grid-row: span 5;
+    }
+    .box{
+        grid-row: span 2;
+        grid-column: span 2;
+    }
+    .wide{
+        grid-column: span 2;
+        grid-row:  span 1;
+    }
+    .small{
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+
+
+//this is the new section for the naming 
+.grid-naming{
+    display: grid;
+    height: 80vh;
+    width: 100vw;
+    grid-template-columns: [page-start] 1fr [content-start] 80vw [content-end] 1fr [page-end];
+    grid-template-rows: [header-start] 5em [header-end] 50vh [main-start] 3em [hero-end] auto [main-end] 40vh [section-end] 5em [footer-end];
+    
+    header,footer{
+        background: #444;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    header{
+        grid-column: page-start/end-start;
+        grid-row: header-start/header-end;
+    }
+    .naming-hero{
+        grid-column: content-start/content-end;
+        grid-row: header-end/hero-end;
+        background: url(//unsplash.it/800/800);
+        background-size: cover;
+        background-position: center;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+    }
+
+    .naming-main{
+       
+        grid-column: content-start/content-end;
+        grid-row:  main-start/main-end;
+        z-index: 20;
+         display: flex;
+        justify-content: space-between;
+        .naming-card{
+            background: #333;
+            opacity: 1;
+            color: #fff;
+            margin: 4px 2em;
+            display: grid;
+            grid-column-gap: 5px;
+            padding: 4px;
+            grid-template-columns: repeat(2 , 1fr);
+            grid-template-rows: min-content auto;
+            grid-template-areas:
+             "img header"
+             "img content";
+             .card-img{
+                 grid-area: img;
+                 background: url(//unsplash.it/800/800);
+                 background-size: cover;
+                 background-position: center;
+             }
+             .card-header{
+                 grid-area: header;
+             }
+             .card-conent{
+                 grid-area: content;
+             }
+        }
+    }
+    .naming-section{
+        grid-column: page-start/page-end;
+        grid-row: hero-end/section-end;
+        display: grid;
+        background: #cacaca;
+        grid-template-columns: 1fr minmax(10vw , 20vw) 1fr minmax(8vw,18vw) 1fr minmax(12vw, 22vw) 1fr;
+        grid-template-areas: 
+        ". . . . . . ."
+        ". . . second . . ."
+        ". first . second . . ."
+        ". first . second . third ."
+        ". first . second . third ."
+        ". first . . . third ."
+        ". . . . . third ."
+        ". . . . . . .";
+
+        .section{
+            background : url(//unsplash.it/800/800);
+            background-size: cover;
+            background-position: center;
+        }
+        .section-first{
+            grid-area: first;
+        }
+        .section-second{
+            grid-area:  second;
+        }
+        .section-third{
+            grid-area: third;
+        }
+    }
+    footer{
+        grid-column: page-start/page-end;
+        grid-row: section-end/footer-end;
+    }
+
+}

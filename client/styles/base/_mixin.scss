@@ -1,0 +1,21 @@
+@mixin coloring($from-color , $to-color , $col-no , $row-no) {
+    position: relative;
+   
+    grid-column: span $col-no;
+    grid-row: span $row-no;
+    background: $from-color;
+    @keyframes color {
+        0% {background: $from-color;}
+        50% {background: $to-color;}
+        100%{background: $from-color;}
+    }
+    animation : color ease-in-out 2s infinite;
+}
+
+@mixin background($color , $url , $blend-mode) {
+    background: $color;
+    background-image: $url;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: $blend-mode;
+}

@@ -1,4 +1,6 @@
 @import './base/variable';
+@import './base/keyframe';
+@import './base/mixin';
 @import './base/common';
 @import './components/brandSection';
 @import './components/navbar';
@@ -6,4 +8,7 @@
 @import './components/topSection';
 @import './components/addTask';
 @import './components/taskBoard';
-@import './components//projects';
+@import './components/projects';
+@import './components/card';
+@import './components/gird';
+@import './components/portfolio';
