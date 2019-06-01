@@ -52,6 +52,16 @@ export default new Router({
       name: 'portfolio',
       component: () => import('./components/portfolio.vue'),
     },
+    {
+      path: '/eat',
+      name: 'eat',
+      component: () => import('./components/eat.vue'),
+    },
+    {
+      path: '/netflix',
+      name: 'netflix',
+      component: () => import('./components/netflix.vue'),
+    },
 
   ]
 })

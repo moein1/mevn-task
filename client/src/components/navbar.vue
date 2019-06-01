@@ -16,6 +16,12 @@
       <router-link to="portfolio">Portfolio</router-link>
     </li>
     <li>
+      <router-link to="eat">Eat</router-link>
+    </li>
+    <li>
+      <router-link to="netflix">Netflix</router-link>
+    </li>
+    <li>
       <router-link to="/">Summart</router-link>
     </li>
   </ul>

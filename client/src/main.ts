@@ -16,7 +16,9 @@ import projects from './components/projects.vue';
 import addProjects from './components/addProjects.vue';
 import card from './components/card.vue';
 import grid from './components/grid.vue';
-import portfolio from './components/portfolio.vue'
+import portfolio from './components/portfolio.vue';
+import eat from './components/eat.vue';
+import netflix from './components/netflix.vue';
 
 
 import 'font-awesome/css/font-awesome.css'
@@ -37,6 +39,8 @@ Vue.component('addProjects', addProjects);
 Vue.component('card', card);
 Vue.component('gird', grid);
 Vue.component('portfolio', portfolio);
+Vue.component('eat', eat);
+Vue.component('netflix', netflix);
 
 Vue.config.productionTip = false
 

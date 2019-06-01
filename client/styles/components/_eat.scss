@@ -1,0 +1,82 @@
+.eat{
+    display: grid;
+    grid-template-columns: [page-start] 2em [logo-start] 300px [logo-end] 42vw [side-start] 400px [side-end] 2em [page-end];
+    grid-template-rows: [show-start] 10vh [logo-row-start] 20vh [logo-row-end] 10vh [show-end] 4em [nav-end] auto [main-end] 4em [bottom];
+
+    .showcase{
+        @include background(rgba(0,0,0,.4) , url(//unsplash.it/800/800), multiply);
+        grid-column: page-start/page-end;
+        grid-row: show-start/show-end;
+    }
+    .logo{
+        background: $gray-color;
+        grid-column: logo-start/logo-end;
+        grid-row: logo-row-start/logo-row-end;
+        padding: 1em;
+        border-radius: 4px;
+    }
+    .second-navbar{
+        grid-column: page-start/page-end;
+        grid-row: show-end/nav-end;
+        border-bottom: 1px solid rgba(0,0,0,.3);
+        display: flex;
+        align-items: center;
+        ul{
+        display: flex;
+        align-items: center;
+        margin-left: 2em;
+        li{
+            margin: 0 1em 0 0;
+            a{
+                
+            color: $black-color;
+            }
+        }
+        }
+    }
+    .main-section{
+        grid-column: logo-start/side-start;
+        grid-row: nav-end/main-end;
+        padding-top: 3em;
+    }
+    .sidebar{
+        grid-column: side-start/side-end;
+        grid-row: nav-end/main-end;
+        padding-top: 3em;
+        .checkout{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            margin: 1em;
+            padding: 1em;
+            background: $white-color;
+            box-shadow: 2px 2px 2px 1px rgba(0,0,0,.2);
+            .button{
+                background: $green-blue-color;
+                color: $white-color;
+                text-align: center;
+                padding: 1em 0;
+                border-radius: 2px;
+                font-size: 1em;
+                width: 90%;
+                position: relative;
+                margin-bottom: 8%;
+                &::after{
+                    content: '';
+                    border: 1px solid rgba(0,0,0,.2);
+                    position: absolute;
+                    width: 100%;
+                    top: 140%;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+            p{
+                color: rgba(0,0,0,.3);
+                margin-top: 5px;
+            }
+        }
+       
+    }
+}

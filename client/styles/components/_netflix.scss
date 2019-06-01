@@ -1,0 +1,186 @@
+.netflix{
+    background: $black-color;
+    display: grid;
+    grid-template-rows: 90vh auto auto ;
+    grid-template-columns: 100vw;
+    .showcase{
+        background: rgba(0, 0,0, .5);
+        background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/06f60d9f-3b9a-42e2-bc78-141074bcd075/1494fb0c-cda9-4248-a95f-79ced6bee966/AU-en-20190520-popsignuptwoweeks-perspective_alpha_website_small.jpg);
+        background-position: center;
+        background-size: cover;
+        box-shadow: inset 50px 50px 50px rgba(0,0,0,.8);
+        background-blend-mode: overlay;
+        display: grid;
+        grid-template-rows: 1fr 8fr;
+        .showcase-top{
+            z-index: 3;
+            display: flex;
+            justify-content: center;
+             align-items: center;
+             position: relative;
+           
+         
+           a{
+               right: 0;
+               top: 50%;
+               transform: translate(-100% ,-50%);
+               background: $red-color;
+               position: absolute;
+               color: $white-color;
+               padding: 7px 17px;
+           }
+            h1{
+                  position: absolute;
+                  color: $red-color;
+                  font-size: 3rem;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50% , -50%);
+                  text-transform: uppercase;
+                  &::after{
+                      position: absolute;
+                      content: ' ';
+                      bottom : 0;
+                      left: 0;
+                      height: 2px;
+                      background: $white-color;
+                      width: 100%;
+                      transform-origin: right;
+                      transition: transform ease 200ms;
+                      transform: scale(0);  
+                  }
+                  &:hover::after{
+                      transform-origin: left;
+                      transform: scale(1);
+                  }
+            }
+        }
+        .showcase-bottom{
+            z-index:3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: $white-color;
+            h1{
+                font-size: 4em;
+                font-weight: 600;
+                margin-bottom: .4em;
+            }
+            p{
+                font-size: 2em;
+                margin-bottom: 1em;
+            }
+            a{
+                color: $white-color;
+                background: $red-color;
+                padding: .7em 2.3em;
+                font-size: 2em;
+                border-radius: 2px;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .tabs{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        padding: 1em 0 2px 0;
+        margin: 0 5em;
+        border-bottom: 1px solid rgba(255, 0,0, .5);
+        .tab-item{
+             opacity: .5;
+            color: $white-color;
+            text-align: center;
+            padding-bottom: 1em;
+            width: 100%;
+            &:hover{
+                cursor: pointer;
+                opacity: 1;
+            }
+            &.show{
+                opacity: 1;
+                border-bottom: 4px solid $red-color;
+            }
+        }
+        i{
+            font-size: 5em;
+        }
+
+    }
+
+    .tabs-content{
+        color: $white-color;
+        img{
+           width: 100%;
+        }
+        a{
+            color: $white-color;
+            background: $red-color;
+            padding: 1em 2em;
+            width: 50%;
+            text-align: center;
+            margin-top: 2em;
+            text-transform: uppercase;
+        }
+      
+        #tab1-content{
+            p{
+                font-size: 2em;
+            }
+            display: grid;
+            grid-template-columns: repeat(auto-fill , minmax(400px ,1fr));
+            justify-content: center;
+            margin: 2em;
+            text-align: center;
+          //  padding: 0 3em;
+           // flex-wrap: wrap;
+           // flex-basis: 
+            &>div{
+                display: flex;
+               flex-direction: column;
+               justify-content: center;
+               align-items: center;
+               flex-basis: 40%;
+            }
+        }
+
+        #tab2-content{
+           display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1em;
+            .tab2-content-top{
+                display: grid;
+                grid-template-columns: 4fr 2fr;
+                text-align: center;
+                @media screen and (max-width :840px) {
+                    grid-template-columns: 1fr;
+                }
+                
+                align-items: center;
+                grid-gap: 2em;
+                margin: 1em 0;
+                p{
+                    font-size: 1.6em;
+                }
+            }
+            .tab2-content-bottom{
+                display: grid;
+                grid-template-columns: repeat(auto-fill , minmax(250px ,1fr));
+                grid-gap: 1em;
+              //  display: flex;
+                text-align: center;
+                margin-top: 1em;
+                //justify-content: space-around;
+                p{
+                    opacity: .6;
+                    margin-top: 1em;
+                }
+
+            }
+        }
+    }
+    
+}
