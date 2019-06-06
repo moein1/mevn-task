@@ -19,3 +19,26 @@
     background-position: center;
     background-blend-mode: $blend-mode;
 }
+@mixin jumpingmethod($from , $to , $time , $delay) {
+    animation: jumping $time ease-in-out infinite;
+    animation-delay: $delay;
+    transform-origin: bottom;
+    @keyframes jumping{
+        0%{
+            transform: translateY($from) scale(100%);
+            
+        }
+        50%{
+            transform: translateY(0) scale(25%);
+    
+        }
+        75%{
+            transform: translateY($to) scale(50%);
+            
+        }
+        100%{
+            transform: translateY(0) scale(0);
+        }
+    }
+
+}

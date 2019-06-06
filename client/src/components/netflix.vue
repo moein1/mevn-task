@@ -7,6 +7,7 @@
       </div>
       <div class="showcase-bottom">
         <h1>See what's next</h1>
+        <div class="loader"></div>
         <p>watch anywhere. cancel at any time</p>
         <a href="#">
           Try 30 days free

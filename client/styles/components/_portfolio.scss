@@ -12,53 +12,73 @@
         align-items: center;
         position: relative;
         color: $blue-color;
-        line-height: 2;
-        &::before{
+        line-height: 1.5;
+        h3{
+            font-size: 1.5em;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        &:before,&:after{
             content: '';
             position: absolute;
-            width: 10vw;
+            width: 80%;
             border: 1px solid $blue-color;
-            margin-top: -80px;
+            text-align: center;
         }  
         &:after{
-            content: '';
-            width: 10vw;
-            border : 1px solid $blue-color;
-            position: absolute;
-            margin-top: 80px;
+            margin: 5em auto 0;
         }
+        &:before{
+            margin: -1em auto 0;
+        }
+    }
 
       
     }
     .banner{
         display: grid;
-        grid-template-columns: repeat(3 , 1fr);
-        grid-template-rows: 10vh;
-        align-items: center;
+        grid-template-columns: minmax(2em, 1fr) minmax(20em , 50vw) minmax(2em , 1fr);
+       text-align: center;
+        grid-template-rows: 30vh;
+        grid-gap: 2px;
         .card{
          padding: 3em;
+         height:100%;
          @include background(#cacaca , url(//unsplash.it/800/800) , overlay);
             
         }
-    }
-    .profile{
-        display: grid;
-        grid-template-columns: [page-start] 2vw [img-start] 20vw [header-start] 10vw [img-end] auto [content-end] 2em;
-        grid-template-rows: [profile-start] 2em [img-row-start] 10vh [content-row-start] 10vh [img-row-end] 20vh [profile-end] 4em;
-
-        .profile-img{
-            @include background(#cacaca , url(//unsplash.it/800/800) , overlay);
-            grid-template-columns: img-start/img-end;
-            grid-template-rows: img-row-start/img-row-end; 
-        }
-        .hightlight-text{
-            grid-template-columns: header-start/auto;
-            grid-template-rows: img-row-start/auto;
-        }
-
-        .porofile-text{
-            grid-template-columns: img-row-end/profile-end;
-            grid-template-rows: [content-row-start];
+        .card-text{
+            padding: 1em;
+            background: $green-blue-color;
+            color: $white-color;
+            h3{
+                font-size: 2em;
+                margin-bottom: 1em;
+            }
         }
     }
+    // .profile2{
+    //     display: grid;
+    //     grid-column: minmax(2em, 1fr) minmax(20em , 50vw) minmax(2em , 1fr);
+    // }
+    // .profile2{
+    //     display: grid;
+    //     grid-template-columns: [page-start] 2vw [img-start] 20vw [header-start] 10vw [img-end] auto [content-end] 2em;
+    //     grid-template-rows: [profile-start] 2em [img-row-start] 10vh [content-row-start] 10vh [img-row-end] 20vh [profile-end] 4em;
+
+    //     .profile-img{
+    //         @include background(#cacaca , url(//unsplash.it/800/800) , overlay);
+    //         grid-template-columns: img-start/img-end;
+    //         grid-template-rows: img-row-start/img-row-end; 
+    //     }
+    //     .hightlight-text{
+    //         grid-template-columns: header-start/auto;
+    //         grid-template-rows: img-row-start/auto;
+    //     }
+
+    //     .porofile-text{
+    //         grid-template-columns: img-row-end/profile-end;
+    //         grid-template-rows: [content-row-start];
+    //     }
+    // }
 }
