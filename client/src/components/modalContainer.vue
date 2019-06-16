@@ -28,7 +28,7 @@ export default {
       minimized: false,
       currnetRight: 0,
       modalWidth: 300,
-      componentList: [{ name: "modal", right: 0 }]
+      componentList: [{ name: "modal", right: 0, id: "modal0" }]
     };
   },
   methods: {

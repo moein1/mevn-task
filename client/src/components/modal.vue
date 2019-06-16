@@ -1,5 +1,5 @@
 <template>
-  <div id="modal1" class="modal" :style="{right : right+'px'}">
+  <div :id="'modal'+right" class="modal" :style="{right : right+'px'}">
     <div class="modal-header">
       <h4>New message</h4>
       <div class="button-area">
@@ -26,7 +26,7 @@ export default {
   methods: {
     /**minimize the modal */
     minimize() {
-      const modal = document.getElementById("modal1");
+      const modal = document.getElementById(`modal${this.right}`);
       var translate = this.minimized ? 0 : 260;
       modal.style.transform = `translateY(${translate}px)`;
 
