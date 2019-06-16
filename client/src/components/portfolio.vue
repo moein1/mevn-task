@@ -12,18 +12,66 @@
       </div>
       <div class="card"></div>
     </div>
-    <!-- <div class="profile">
-      <div class="profile-img"></div>
-      <div class="hightlight-text">
-        <h2>Moein</h2>
-        <h2>Karimi</h2>
+
+    <div class="about-me">
+      <div alt class="about-img"></div>
+      <h1 class="about-title">Mohammad Portfolio</h1>
+      <div class="about-text">
+        <h2 class="about-subtitle">Front End Developer</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus quisquam tempore doloremque dicta porro natus amet ab reiciendis accusantium architecto suscipit aut, repellat quasi obcaecati. Ratione quas porro qui ab?</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam nihil, numquam laudantium ipsam totam quae labore tempore. Quidem excepturi atque eius. Architecto, optio. Facere expedita accusamus officiis corporis delectus officia. Ullam, nisi eaque tempora ab iste totam dolore? Laboriosam, facilis.</p>
       </div>
-      <div class="porofile-text">
-        <h3>this is profile</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia omnis cum similique nulla aspernatur quo vero, architecto iure dolor! Velit ipsum assumenda nesciunt temporibus impedit vitae accusamus animi a, blanditiis dolorem nam officia eaque quas dolor ab eos voluptas porro?</p>
+    </div>
+    <section class="portfolio-main">
+      <h1>My Work</h1>
+      <div class="portfolio-items">
+        <figure class="portfolio-item">
+          <img src="../assets/asset_mobile_tablet_UI_2.png" alt="img1">
+          <figcaption>
+            <h2 class="portfolio-title">Project Name</h2>
+            <p class="portfolio-desc">A short description about the project</p>
+            <a href="#" class="portfolio-link">More info</a>
+          </figcaption>
+        </figure>
+        <figure class="portfolio-item featured">
+          <img src="../assets/asset_TV_UI.png" alt="img1">
+          <figcaption>
+            <h2 class="portfolio-title">Project Name</h2>
+            <p class="portfolio-desc">A short description about the project</p>
+            <a href="#" class="portfolio-link">More info</a>
+          </figcaption>
+        </figure>
+        <figure class="portfolio-item">
+          <img src="../assets/asset_website_UI.png" alt="img1">
+          <figcaption>
+            <h2 class="portfolio-title">Project Name</h2>
+            <p class="portfolio-desc">A short description about the project</p>
+            <a href="#" class="portfolio-link">More info</a>
+          </figcaption>
+        </figure>
       </div>
-      <div class="profile-img"></div>
-    </div>-->
+    </section>
+    <section class="contact">
+      <h1>Contact Me</h1>
+      <form action>
+        <label class="name">
+          Name:
+          <input type="text" id="name">
+        </label>
+        <label for class="email">
+          Email:
+          <input id="email">
+        </label>
+        <label message="message" class="message">
+          Message:
+          <textarea name id="message" cols="30" rows="10"></textarea>
+        </label>
+        <input type="button" class="button" value="SEND">
+      </form>
+    </section>
+    <footer>
+      <p>Follow me n sicial media</p>
+    </footer>
   </div>
 </template>
 
