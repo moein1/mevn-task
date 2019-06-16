@@ -24,6 +24,9 @@
     <li>
       <router-link to="/">Summart</router-link>
     </li>
+    <li>
+      <router-link to="modalContainer">Modal container</router-link>
+    </li>
   </ul>
 </template>
 

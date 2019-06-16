@@ -62,6 +62,10 @@ export default new Router({
       name: 'netflix',
       component: () => import('./components/netflix.vue'),
     },
-
+    {
+      path: '/modalContainer',
+      name: 'modalContainer',
+      component: () => import('./components/modalContainer.vue'),
+    },
   ]
 })

@@ -19,6 +19,8 @@ import grid from './components/grid.vue';
 import portfolio from './components/portfolio.vue';
 import eat from './components/eat.vue';
 import netflix from './components/netflix.vue';
+import modalContainer from './components/modalContainer.vue';
+import modal from './components/modal.vue';
 
 
 import 'font-awesome/css/font-awesome.css'
@@ -41,6 +43,8 @@ Vue.component('gird', grid);
 Vue.component('portfolio', portfolio);
 Vue.component('eat', eat);
 Vue.component('netflix', netflix);
+Vue.component('modalContainer', modalContainer);
+Vue.component('modal', modal);
 
 Vue.config.productionTip = false
 

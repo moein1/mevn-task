@@ -1,0 +1,30 @@
+.modal{
+        border: 1px solid;
+        box-shadow: -3px -2px 15px rgba(#000, .5);
+        height: 300px;
+        width: 300px;
+       // background: #bababa;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border-radius: 3px;
+        .modal-header{
+            background: #444;
+            color: $white-color;
+            padding: .5em;
+            display: flex;
+            justify-content: space-between;
+            .button-area{
+                flex-basis: 25%;
+                display: flex;
+                justify-content: space-around;
+                i{
+                    cursor: pointer;
+                }
+            }
+        }
+        .modal-content{
+            padding: 1em;
+        }
+    
+    }
