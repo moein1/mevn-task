@@ -5,7 +5,7 @@
       <div class="button-area">
         <i @click="minimize()" class="fa fa-window-minimize"></i>
         <i class="fa fa-compress"></i>
-        <i class="fa fa-close"></i>
+        <i class="fa fa-close" @click="$emit(closeModal)"></i>
       </div>
     </div>
     <div class="modal-content">this is the conten of the modal</div>
@@ -21,7 +21,8 @@ export default {
     };
   },
   props: {
-    right: Number
+    right: Number,
+    closeModal: Function
   },
   methods: {
     /**minimize the modal */

@@ -3,7 +3,7 @@
     <button @click="openModal">ModalContaine</button>
     <!-- <modal></modal> -->
     <div v-for="(item,index) in componentList" :key="index">
-      <component :is="item.name" :right="item.right"></component>
+      <component :is="item.name" :close-modal="closeModal(item)" :right="item.right"></component>
     </div>
     <!-- <div id="modal1" class="modal">
       <div class="modal-header">
@@ -44,6 +44,12 @@ export default {
       modal.style.transform = `translateY(${translate}px)`;
 
       this.minimized = !this.minimized;
+    },
+    closeModal(item) {
+      console.log(
+        "this is the item to closing and removing form tne list",
+        item
+      );
     }
   }
 };
