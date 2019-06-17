@@ -4,6 +4,7 @@ import todos from './modules/todos'
 import tasks from './modules/tasks'
 import users from './modules/users'
 import projects from './modules/projects';
+import modal from './modules/modal';
 
 // Load the Vuex
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
     todos,
     tasks,
     users,
-    projects
+    projects,
+    modal
   }
 })
