@@ -1,7 +1,6 @@
 <template>
-  <div :id="'modal'+right" class="modal" :style="{right : (getModalIndex) * modalWidth +'px'}">
+  <div :id="modalId" class="modal" :style="{right : (getModalIndex) * modalWidth +'px'}">
     <div class="modal-header">
-      {{modalId}}{{getModalIndex}}
       <h4>New message</h4>
       <div class="button-area">
         <i @click="minimize()" class="fa fa-window-minimize"></i>
@@ -9,7 +8,10 @@
         <i class="fa fa-close" @click="closeModal(modalId)"></i>
       </div>
     </div>
-    <div class="modal-content">this is the conten of the modal</div>
+    <div class="modal-content">
+      this is the conten of the modal
+      {{modalId}}{{getModalIndex}}
+    </div>
   </div>
 </template>
 
@@ -30,8 +32,8 @@ export default {
   methods: {
     /**minimize the modal */
     minimize() {
-      const modal = document.getElementById(`modal${this.right}`);
-      var translate = this.minimized ? 0 : 260;
+      const modal = document.getElementById(`${this.modalId}`);
+      var translate = this.minimized ? 0 : 265;
       modal.style.transform = `translateY(${translate}px)`;
 
       this.minimized = !this.minimized;
@@ -39,13 +41,9 @@ export default {
     ...mapActions(["closeModal"])
   },
   computed: {
-    newStyle() {
-      return `right:${this.right}`;
-    },
     ...mapGetters(["getModal"]),
     getModalIndex() {
       const modals = this.getModal;
-      console.log("this is the list of modal ", modals);
       return modals.findIndex(obj => obj.id == this.modalId);
     }
   }
