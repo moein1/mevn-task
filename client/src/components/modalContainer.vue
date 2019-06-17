@@ -1,8 +1,9 @@
 <template>
   <div class="modal-container">
+    {{getModal}}
     <button @click="openModal">ModalContaine</button>
     <!-- <modal></modal> -->
-    <div v-for="(item,index) in componentList" :key="index">
+    <div v-for="(item,index) in getModal" :key="index">
       <component :is="item.name" :close-modal="closeModal(item)" :right="item.right"></component>
     </div>
     <!-- <div id="modal1" class="modal">
@@ -20,6 +21,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "modalContainer",
   data() {
@@ -36,6 +38,7 @@ export default {
       /**we need to open the div for the modal on the bottom right section of the page */
       this.currnetRight += this.modalWidth + 5;
       this.componentList.push({ name: "modal", right: this.currnetRight });
+      this.addModal({ name: "modal", right: this.currnetRight });
     },
     /**minimize the modal */
     minimize() {
@@ -50,7 +53,11 @@ export default {
         "this is the item to closing and removing form tne list",
         item
       );
-    }
+    },
+    ...mapActions(["addModal"])
+  },
+  computed: {
+    ...mapGetters(["getModal"])
   }
 };
 </script>
