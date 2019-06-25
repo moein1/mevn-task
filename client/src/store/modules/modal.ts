@@ -1,9 +1,11 @@
 const state = {
-    componentList: []
+    componentList: [],
+    fullSize: false
 }
 
 const getters = {
-    getModal: (state) => state.componentList
+    getModal: (state) => state.componentList,
+    getFullSize: (state) => state.fullSize
 }
 
 const actions = {
@@ -11,16 +13,45 @@ const actions = {
         commit('addModal', payload);
     },
     closeModal: ({ commit }, payload) => {
-        console.log('this is the pay load ', payload);
         commit('closeModal', payload);
+
+    },
+    toggleFullSize: ({ commit }, payload) => {
+        commit('toggleFullSize', payload);
+    },
+    toggleMinimize: ({ commit }, payload) => {
+        commit('toggleMinimize', payload);
     }
 }
 
 const mutations = {
     addModal: (state, modal) => state.componentList.push(modal),
-    closeModal: (state, modalId) => state.componentList = state.componentList.filter(component => {
-        return component.id !== modalId;
-    })
+    closeModal: (state, modalId) => {
+        if (state.fullSize) state.fullSize = false;
+        state.componentList = state.componentList.filter(component => {
+            return component.id !== modalId;
+        });
+    },
+    toggleFullSize: (state, modalId) => {
+        state.fullSize = !state.fullSize;
+        state.componentList.map(component => {
+            if (component.id === modalId) {
+                component.fullSize = !component.fullSize;
+            }
+        })
+    },
+    toggleMinimize: (state, modalId) => {
+        state.componentList.map(component => {
+            if (component.id == modalId) {
+                if (component.fullSize) {
+                    component.fullSize = false;
+                    state.fullSize = false;
+                }
+
+                component.minimized = !component.minimized;
+            }
+        })
+    }
 }
 
 export default {

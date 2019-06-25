@@ -1,9 +1,10 @@
 <template>
-  <div class="modal-container">
-    <button @click="openModal">ModalContaine</button>
+  <div class="modal-container" :class="{'active' : getFullSize}">
+    <i @click="openModal" class="fa fa-plus-circle fa-2x"></i>
     <div v-for="(item,index) in getModal" :key="index">
-      <component :is="item.name" :modalId="item.id"></component>
+      <component :is="item.name" :modal="item"></component>
     </div>
+    <!-- <div class="full-modal"></div> -->
   </div>
 </template>
 
@@ -24,20 +25,17 @@ export default {
       this.addModal({
         name: "modal",
         right: this.currnetRight,
-        id: this.counter
+        id: this.counter,
+        fullSize: false,
+        minimized: false
       });
       this.counter++;
     },
-    closeModal(item) {
-      console.log(
-        "this is the item to closing and removing form tne list",
-        item
-      );
-    },
+    closeModal(item) {},
     ...mapActions(["addModal"])
   },
   computed: {
-    ...mapGetters(["getModal"])
+    ...mapGetters(["getModal", "getFullSize"])
   }
 };
 </script>

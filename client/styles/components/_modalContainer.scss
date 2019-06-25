@@ -4,5 +4,21 @@
     width: 90vw;
     height: 90vh;
     overflow: hidden !important;
+   i{
+       cursor: pointer;
+   }
+    &.active{
+        &::after{
+            content:'';
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            position:absolute;
+            background: rgba(#222,.2);
+            display: block;
+        }
+    }
    
 }
+
