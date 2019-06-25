@@ -67,5 +67,10 @@ export default new Router({
       name: 'modalContainer',
       component: () => import('./components/modalContainer.vue'),
     },
+    {
+      path: '/menu',
+      name: 'menu',
+      component: () => import('./components/menu.vue'),
+    },
   ]
 })

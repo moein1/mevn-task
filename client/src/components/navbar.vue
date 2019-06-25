@@ -27,6 +27,9 @@
     <li>
       <router-link to="modalContainer">Modal container</router-link>
     </li>
+    <li>
+      <router-link to="menu">Animation menu</router-link>
+    </li>
   </ul>
 </template>
 

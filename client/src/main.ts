@@ -21,6 +21,7 @@ import eat from './components/eat.vue';
 import netflix from './components/netflix.vue';
 import modalContainer from './components/modalContainer.vue';
 import modal from './components/modal.vue';
+import menu from './components/menu.vue';
 
 
 import 'font-awesome/css/font-awesome.css'
@@ -45,6 +46,7 @@ Vue.component('eat', eat);
 Vue.component('netflix', netflix);
 Vue.component('modalContainer', modalContainer);
 Vue.component('modal', modal);
+Vue.component('menu', menu);
 
 Vue.config.productionTip = false
 
