@@ -72,5 +72,10 @@ export default new Router({
       name: 'menu',
       component: () => import('./components/menu.vue'),
     },
+    {
+      path: '/alert',
+      name: 'alert',
+      component: () => import('./components/alert.vue'),
+    },
   ]
 })

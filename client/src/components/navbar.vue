@@ -30,6 +30,9 @@
     <li>
       <router-link to="menu">Animation menu</router-link>
     </li>
+    <li>
+      <router-link to="alert">Alert</router-link>
+    </li>
   </ul>
 </template>
 

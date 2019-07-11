@@ -1,24 +1,62 @@
 .main-menu{
+    height: 40vh;
     display: flex;
     justify-content: space-around;
+
     .menu-item{
-       margin-left: 1em;
-        span{
+       //margin-left: 1em;
+       width: 85px;
+       text-align: center;
+       span{
             background: $green-blue-color;
-            padding: .5em;
+            padding: .5em 1.2em;
+            cursor: pointer;
+            color: $white-color;
+            border-radius: 3px;
+            width: 100%;
+
         }
+     @for $k from 0 through 6 {
+       &:hover > #subMenu#{$k} li{
+           display: block;
+           opacity: 0;
+           @if($k == 0){
+               perspective: 1000px;
+           }
+           @if $k ==1{
+             transform-origin: top right;
+           }
+           animation: rotateTransfer#{$k} 300ms ease-in-out forwards;
+           
+           @for $i from 1 through 6{
+               &:nth-child(#{$i}){
+                animation-duration: 300ms * $i;
+                animation-delay: 100ms * $i;
+               }
+              
+           }
+       }
+    }
+        
         .sub-menu{
-            margin-top: 10px;
+            margin-top: 5px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            &.show{
+                display: flex;
+            }
             .sub-menu-item{
                 background: lighten($green-blue-color, 10%);
                 padding: .5em;
-                margin-bottom: .4em;
+                margin-bottom: .1em;
                 border-radius: .3em;
+                display: none;
             }
         }
     }
+
+    
 }
+
