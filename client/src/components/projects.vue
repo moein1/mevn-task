@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="(project , index) in allProject" :key="index" class="project-item">
-      <div @click="selectProject(project)">{{project.name}} {{project.status}}</div>
+      <div @click="selectProject(project)">{{project}}</div>
       <button @click="deleteProject(project.id)">Delete</button>
     </div>
     <add-projects :mode="mode"></add-projects>

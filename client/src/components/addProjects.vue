@@ -9,6 +9,9 @@
       <div>
         <input type="text" v-model="singleProject.status">
       </div>
+      <dir>
+        <input type=" text" v-model="singleProject.url">
+      </dir>
       <button @click="addNewProjec()">{{mode}} Project</button>
     </div>
   </div>
