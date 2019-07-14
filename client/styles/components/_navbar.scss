@@ -1,7 +1,9 @@
 #main-navbar{
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-basis: 30%;
     align-items: center;
     padding: .5em;
+    flex-direction: column;
+
 }

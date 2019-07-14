@@ -1,12 +1,17 @@
 <template>
   <div id="app">
-    <div id="main-navbar">
+    <div id="top-section">
       <brand-section/>
-      <navbar/>
+
       <authentication/>
     </div>
-    <div class="main-content">
-      <router-view/>
+    <div id="main-section">
+      <div id="main-navbar">
+        <navbar/>
+      </div>
+      <div class="main-content">
+        <router-view/>
+      </div>
     </div>
   </div>
 </template>
