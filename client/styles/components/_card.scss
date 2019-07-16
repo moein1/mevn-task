@@ -156,7 +156,6 @@
 // this is the section for the grid naming test and we can use it in my next portfollio
 
 .section-container{
-    width: 100vw;
     display: grid;
     grid-template-columns:[page-start] 1fr [content-start] 80vw [content-end] 1fr [page-end];
     grid-template-rows:[hero-start] 50vh [info-start] 5em [hero-end] 5em [info-end] auto[bottom]; 
