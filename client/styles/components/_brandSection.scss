@@ -1,12 +1,25 @@
 #brand-section{
     display: flex;
-    flex-basis: 30%;
     justify-content: center;
+    padding-left: 1rem;
+    
     a{
     text-transform: uppercase;
     position: relative;
+    color: $white-color;
+    font-size: 2rem;
     &::after{
-        @include niceUnderLine;
+        position: absolute;
+        content: '';
+        bottom : 0;
+        left: 0;
+        height: 2px;
+        background: $white-color;
+        width: 100%;
+        transform-origin: right;
+        transition: transform ease 200ms;
+        transform: scale(0); 
+        border-bottom: 2px solid $green-blue-color; 
     }
     &:hover::after{
         transform-origin: left;
