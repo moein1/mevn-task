@@ -1,6 +1,6 @@
 .join{
     display: grid;
-    grid-template-columns: [page-start] 1fr [logo-start] 30vw [logo-end] 40vw [signup-start] 25vw [signup-end] 1fr [page-end];
+    grid-template-columns: [page-start] 2fr [logo-start] 20vw [logo-end] 30vw [signup-start] 20vw [signup-end] auto [page-end];
     grid-template-rows: [show-start] 5em [signup-row-start] 40vh [show-end] 5em [signup-row-end] auto [highlight-end] 5em [bottom];
 
     .showcase{

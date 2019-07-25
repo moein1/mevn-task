@@ -1,6 +1,6 @@
 .eat{
     display: grid;
-    grid-template-columns: [page-start] 2em [logo-start] 300px [logo-end] 42vw [side-start] 400px [side-end] 2em [page-end];
+    grid-template-columns: [page-start] 2em [logo-start] 300px [logo-end] 42vw [side-start] auto [side-end] 2em [page-end];
     grid-template-rows: [show-start] 10vh [logo-row-start] 20vh [logo-row-end] 10vh [show-end] 4em [nav-end] auto [main-end] 4em [bottom];
 
     .showcase{
