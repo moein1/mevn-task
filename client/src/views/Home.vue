@@ -1,17 +1,13 @@
 <template>
   <div>
-    <tasks/>
+    <landing-page></landing-page>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import Tasks from "@/components/tasks.vue"; // @ is an alias to /src
 
 export default Vue.extend({
-  name: "home",
-  components: {
-    Tasks
-  }
+  name: "home"
 });
 </script>

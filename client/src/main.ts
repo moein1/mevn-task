@@ -23,6 +23,7 @@ import modalContainer from './components/modalContainer.vue';
 import modal from './components/modal.vue';
 import menu from './components/menu.vue';
 import alert from './components/alert.vue';
+import landingPage from './components/landingPage.vue';
 
 
 import 'font-awesome/css/font-awesome.css'
@@ -49,6 +50,7 @@ Vue.component('modalContainer', modalContainer);
 Vue.component('modal', modal);
 Vue.component('menu', menu);
 Vue.component('alert', alert);
+Vue.component('landingPage', landingPage);
 
 Vue.config.productionTip = false
 
