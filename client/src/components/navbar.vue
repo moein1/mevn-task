@@ -51,6 +51,11 @@
         <i class="fa fa-users"></i>Alert
       </router-link>
     </li>
+    <li>
+      <router-link to="kynd">
+        <i class="fa fa-users"></i>Kynd
+      </router-link>
+    </li>
   </ul>
 </template>
 

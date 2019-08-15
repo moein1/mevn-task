@@ -1,0 +1,32 @@
+#kynd{
+    nav{
+        padding: 1rem;
+        .logo{
+         img{
+             width: 30%;
+         }
+        }
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        .navbar{
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+    .nav-button{
+        margin:0 .5rem;
+        padding: .5rem .8rem;
+        border-radius: 20px;
+    }
+    .button-light{
+        background: $yellow-color;
+        color: $white-color;
+    }
+    .button-dark{
+        background: $dark-blue;
+        color: $white-color;
+    }
+   
+}
