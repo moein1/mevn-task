@@ -76,6 +76,10 @@ export default new Router({
       path: '/alert',
       name: 'alert',
       component: () => import('./components/alert.vue'),
+    }, {
+      path: '/kynd',
+      name: 'kynd',
+      component: () => import('./components/kynd.vue'),
     },
   ]
 })
